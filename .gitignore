@@ -1,0 +1,10 @@
+.idea/
+node_modules/
+public/js/
+public/css/
+package-lock.json
+package.json
+webpack.config.js
+public/index.html
+src/components/common/Header.js
+src/components/common/Footer.js
