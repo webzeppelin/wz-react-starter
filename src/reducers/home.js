@@ -1,5 +1,5 @@
 // IMPORT ACTION TYPES
-// import { ACTION_TYPE } from "../../action"
+// import { ACTION_TYPE } from "../action"
 
 export const defaultHomeState = {
   // DEFINE YOUR DEFAULT HOME PAGE STATE

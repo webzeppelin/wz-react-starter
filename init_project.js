@@ -1,7 +1,7 @@
 const fs = require("fs");
 const fs_options = { encoding: "utf8" };
 const exec = require("child_process").execSync;
-const mustache = require("mustache");
+const mustache = mustacheNotInstalled() ? null : require("mustache");
 
 function main() {
   if (mustacheNotInstalled()) {
@@ -36,7 +36,7 @@ function mustacheNotInstalled() {
 
 function installMustacheAndExit() {
   const cmd = "npm install mustache";
-  console.log(exec(cmd, options));
+  console.log(exec(cmd, fs_options));
   console.log("Mustache install completed. Rerun project init script to complete init.");
   process.exit();
 }

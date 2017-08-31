@@ -1,7 +1,7 @@
 {
   "global": {
     "projectName": "your-react-app",
-    "initialVersion": "1.0.0",
+    "initialVersion": "0.0.1",
     "projectDescription": "Replace this with your project's description.",
     "homePageTitle": "Your React-Redux App",
     "gitSiteUrl": "https://github.com/webzeppelin/wz-react-starter",
