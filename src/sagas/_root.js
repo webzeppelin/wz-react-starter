@@ -1,8 +1,8 @@
 import { takeLatest } from "redux-saga";
 import { race, call, put, fork, take } from "redux-saga/effects";
 
-// IMPORT YOUR ACTION TYPES
-// import { ACTION_TYPE } from "../action"
+// IMPORT YOUR ACTION TYPES AND ACTION CREATORS
+import * as Action from "../action";
 
 // IMPORT YOUR SIDE EFFECTS
 // import { doSideEffect } from "./home";
@@ -11,8 +11,8 @@ import { race, call, put, fork, take } from "redux-saga/effects";
 export function* sagas() {
   yield [
     // REGISTER YOUR SIDE EFFECT SAGAS BELOW
-    // fork(takeLatest, ACTION_TYPE, doSideEffect),
-    // fork(takeLatest, ACTION_TYPE, logAction),
+    // fork(takeLatest, Action.ACTION_TYPE, doSideEffect),
+    // fork(takeLatest, Action.ACTION_TYPE, logAction),
     
   ];
 }
