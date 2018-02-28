@@ -1,22 +1,29 @@
-import { takeLatest } from "redux-saga";
-import { race, call, put, fork, take } from "redux-saga/effects";
-
-// IMPORT YOUR ACTION TYPES AND ACTION CREATORS
-import * as Action from "../action";
+import { race, call, put, fork, take, spawn } from "redux-saga/effects";
+import { delay } from 'redux-saga'
 
 // IMPORT YOUR SIDE EFFECTS
-// import { doSideEffect } from "./home";
+// import homeSaga from "./home";
 
-// root saga generators
+const makeRestartable = (saga) => {
+  return function* () {
+    yield spawn(function* () {
+      while (true) {
+        try {
+          yield call(saga);
+          console.error("Unexpected root saga termination.", saga);
+        } catch (e) {
+          console.error("Saga error, the saga will be restarted", e);
+        }
+        yield delay(3000);
+      }
+    })
+  };
+};
+
+const rootSagas = [
+  // homeSaga,
+].map(makeRestartable);
+
 export function* sagas() {
-  yield [
-    // REGISTER YOUR SIDE EFFECT SAGAS BELOW
-    // fork(takeLatest, Action.ACTION_TYPE, doSideEffect),
-    // fork(takeLatest, Action.ACTION_TYPE, logAction),
-    
-  ];
-}
-
-export function* logAction(action) {
-  console.log("logAction: "+action.type);
+  yield rootSagas.map(saga => call(saga));
 }
